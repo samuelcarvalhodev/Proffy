@@ -8,6 +8,8 @@ import './styles.css';
 
 interface PageHeaderProps{
     title: string;
+    //interrogação antes dos : serve pra colocar a props como opcional
+    description?: string;
 }
 
 
@@ -22,6 +24,10 @@ const PageHeader: React.FC<PageHeaderProps> = (props) =>{
                </div>
                <div className="header-content">
                     <strong>{props.title}</strong>
+                    
+                    {props.description /*se alguem solicitar description mostra*/? <p>{props.description}</p>
+                    /*se não, coloca nulo e não mostra nada*/: null}
+                      
 
                     {props.children}
                </div>
